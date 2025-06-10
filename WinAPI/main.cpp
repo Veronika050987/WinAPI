@@ -31,7 +31,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
-	case WM_INITDIALOG://Выполняется один раз - при запуске окна
+	case WM_INITDIALOG://Выполняется один раз - при запуске окна !!!!!!
 		break;
 	case WM_COMMAND://Обрабатывает нажатие кнопок, перемещение мыши и т.д.
 		switch (LOWORD(wParam))
