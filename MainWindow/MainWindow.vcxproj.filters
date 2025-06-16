@@ -23,9 +23,6 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -33,17 +30,16 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="3327233-middle.bmp">
+    <Image Include="bitcoin.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="3327233.bmp">
+    <Image Include="atom.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="bitmap1.bmp">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cursor1.cur">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Downloads\y3uzwg7s-1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
+    </None>
   </ItemGroup>
 </Project>
