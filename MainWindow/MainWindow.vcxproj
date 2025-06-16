@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ae1b0a94-afcc-488a-80f3-c867f76c96a7}</ProjectGuid>
+    <ProjectGuid>{63a0d762-03d0-4a57-89a1-1ef1b4eadeb6}</ProjectGuid>
     <RootNamespace>MainWindow</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -134,9 +134,6 @@
   <ItemGroup>
     <Image Include="atom.ico" />
     <Image Include="bitcoin.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cursor1.cur" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
