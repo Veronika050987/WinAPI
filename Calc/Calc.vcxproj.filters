@@ -30,7 +30,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ICO\1486395290-09-calculator_80565.ico">
+    <Image Include="ICO\calculator.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
