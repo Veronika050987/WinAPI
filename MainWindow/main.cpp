@@ -2,6 +2,10 @@
 #include<stdio.h>
 #include"resource.h"
 
+#define IDC_STATIC		1000
+#define IDC_EDIT		1001
+#define IDC_BUTTON		1002
+
 CONST CHAR g_sz_CLASS_NAME[] = "My First Window";	//Абсолютно у любого класса окна есть имя.
 //Имя класса окна - это самая обычная строка.
 
@@ -29,7 +33,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE pRevInst, LPSTR lpCmdLine, INT
 		hInstance,
 		"starcraft-original\\Working In Background.ani",
 		IMAGE_CURSOR,
-		LR_DEFAULTSIZE, LR_DEFAULTSIZE,
+		256, 256,
 		LR_LOADFROMFILE
 	);
 
@@ -61,13 +65,17 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE pRevInst, LPSTR lpCmdLine, INT
 		g_sz_CLASS_NAME,	//WindowName (Title)
 		WS_OVERLAPPEDWINDOW,//Такой стиль задается для всех главноых окон. 
 		//Это окно будет родительским для других окон приложения.
-		window_start_x, window_start_y,	//Position
-		window_width, window_height,	//Size
-		NULL,	//ParentWindow
-		NULL,	//Строка меню для главного окна, или же ID_-ресурса для дочернего окна
-		hInstance,	//Это экземпляр *.exe-файла нашей программы
-		NULL
-	);
+//WS_CHILD | WS_VISIBLE
+window_start_x, window_start_y,	//Position
+window_width, window_height,	//Size
+NULL,	//ParentWindow
+NULL,	//Строка меню для главного окна, или же ID_-ресурса для дочернего окна
+//IDOK, IDCANCEL........
+//ResourceID
+//HWND GetDlgItem()
+hInstance,	//Это экземпляр *.exe-файла нашей программы
+NULL
+);
 	if (hwnd == NULL)
 	{
 		MessageBox(NULL, "Window creation failed", "", MB_OK | MB_ICONERROR);
@@ -84,7 +92,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE pRevInst, LPSTR lpCmdLine, INT
 		DispatchMessage(&msg);
 	}
 
-	return msg.message;
+	return msg.wParam;
 }
 
 INT WINAPI WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -92,6 +100,45 @@ INT WINAPI WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	switch (uMsg)
 	{
 	case WM_CREATE:
+		//A - ANSI ASCII
+		//W - Wide encoding (Unicode - w_char_t)
+		CreateWindowEx
+		(
+			NULL,
+			"Static",
+			"Этот StaticText создан при помощи функции CreateWindowEx().",
+			//WS_-WindowStyle
+			WS_CHILD | WS_VISIBLE,
+			10, 10,
+			550, 25,
+			hwnd,
+			(HMENU)IDC_STATIC,	//ResourceID
+			GetModuleHandle(NULL),	//hInstance
+			NULL
+		);
+		CreateWindowEx
+		(
+			NULL, "Edit", "",
+			WS_CHILD | WS_VISIBLE | WS_BORDER | ES_CENTER,
+			//ES_ - Edit Style
+			10, 50,
+			550, 22,
+			hwnd,
+			(HMENU)IDC_EDIT,
+			GetModuleHandle(NULL),
+			NULL
+		);
+		CreateWindowEx
+		(
+			NULL, "Button", "Применить",
+			WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+			450, 75,
+			110, 25,
+			hwnd,
+			(HMENU)IDC_BUTTON,
+			GetModuleHandle(NULL),
+			NULL
+		);
 		break;
 	case WM_MOVE:
 	case WM_SIZE:
@@ -114,6 +161,20 @@ INT WINAPI WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	}
 	break;
 	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case IDC_BUTTON:
+		{
+			HWND hEdit = GetDlgItem(hwnd, 1001);
+			HWND hStatic = GetDlgItem(hwnd, 1000);
+			CONST INT SIZE = 1024;
+			CHAR sz_buffer[SIZE] = {};	//sz_ - String Zero (NULL-Terminate Line)
+			SendMessage(hEdit, WM_GETTEXT, SIZE, (LPARAM)sz_buffer);
+			SendMessage(hStatic, WM_SETTEXT, 0, (LPARAM)sz_buffer);
+			SendMessage(hwnd, WM_SETTEXT, 0, (LPARAM)sz_buffer);
+		}
+		break;
+		}
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
