@@ -93,12 +93,12 @@ INT WINAPI WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         int startY = 40;
 
         // Create number buttons
-        int buttonId = IDC_BUTTON_7;
+        int buttonId = IDC_BUTTON_1;
         for (int row = 0; row < 3; ++row) 
         {
             for (int col = 0; col < 3; ++col) 
             {
-                CreateButton(hwnd, buttonId, std::to_string(buttonId - IDC_BUTTON_7 + 1).c_str(),
+                CreateButton(hwnd, buttonId, std::to_string(buttonId - IDC_BUTTON_1 + 1).c_str(),
                     startX + col * (buttonWidth + buttonSpacingX),
                     startY + row * (buttonHeight + buttonSpacingY),
                     buttonWidth, buttonHeight);
@@ -112,7 +112,7 @@ INT WINAPI WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             buttonWidth, buttonHeight);
 
         CreateButton(hwnd, IDC_BUTTON_POINT, ".", startX + 2 * (buttonWidth + buttonSpacingX), 
-            startY + 3 * (buttonHeight + buttonSpacingY), buttonWidth, buttonHeight);
+            startY + 4 * (buttonHeight + buttonSpacingY), buttonWidth, buttonHeight);
 
         CreateButton(hwnd, IDC_BUTTON_PLUS, "+", startX + 3 * (buttonWidth + buttonSpacingX), 
             startY, buttonWidth, buttonHeight);
@@ -126,7 +126,7 @@ INT WINAPI WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         CreateButton(hwnd, IDC_BUTTON_BSP, "<=", startX, startY + 3 * (buttonHeight + buttonSpacingY), 
             buttonWidth, buttonHeight);
         CreateButton(hwnd, IDC_BUTTON_CLR, "C", startX + 1 * (buttonWidth + buttonSpacingX), 
-            startY + 3 * (buttonHeight + buttonSpacingY), buttonWidth, buttonHeight);
+            startY + 4 * (buttonHeight + buttonSpacingY), buttonWidth, buttonHeight);
         CreateButton(hwnd, IDC_BUTTON_EQUAL, "=", startX + 2 * (buttonWidth + buttonSpacingX), 
             startY + 3 * (buttonHeight + buttonSpacingY), buttonWidth, buttonHeight);
     }
