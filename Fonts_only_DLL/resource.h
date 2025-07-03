@@ -2,9 +2,9 @@
 // Microsoft Visual C++ generated include file.
 // Used by Resource.rc
 //
-#define IDF_FONT_1						301
-#define IDF_FONT_2						302
-#define IDF_FONT_3						303
+#define IDF_FONT_1					301
+#define IDF_FONT_2					302
+#define IDF_FONT_3					303
 
 // Next default values for new objects
 // 
