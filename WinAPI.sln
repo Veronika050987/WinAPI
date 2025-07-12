@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FontsDLL", "FontsDLL\FontsD
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fonts_only_DLL", "Fonts_only_DLL\Fonts_only_DLL.vcxproj", "{26B262D9-B2DB-4991-92E3-6BD9C7E483E5}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CalcSetup", "CalcSetup\CalcSetup.vdproj", "{9DCE253F-E175-7B89-E1AA-36F45B227300}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -131,6 +133,10 @@ Global
 		{26B262D9-B2DB-4991-92E3-6BD9C7E483E5}.Release|x64.Build.0 = Release|x64
 		{26B262D9-B2DB-4991-92E3-6BD9C7E483E5}.Release|x86.ActiveCfg = Release|Win32
 		{26B262D9-B2DB-4991-92E3-6BD9C7E483E5}.Release|x86.Build.0 = Release|Win32
+		{9DCE253F-E175-7B89-E1AA-36F45B227300}.Debug|x64.ActiveCfg = Debug
+		{9DCE253F-E175-7B89-E1AA-36F45B227300}.Debug|x86.ActiveCfg = Debug
+		{9DCE253F-E175-7B89-E1AA-36F45B227300}.Release|x64.ActiveCfg = Release
+		{9DCE253F-E175-7B89-E1AA-36F45B227300}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
